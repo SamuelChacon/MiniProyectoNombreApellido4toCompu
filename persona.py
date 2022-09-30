@@ -5,6 +5,7 @@ class persona():
         self.nombre = nombre
         self.direccion = direccion
 
+    #getters
     def vernumero(self):
         return self.numero
 
@@ -12,4 +13,14 @@ class persona():
         return self.nombre
 
     def verdireccion(self):
-        return self.direccion  
+        return self.direccion 
+
+    #setters
+    def modificarnumero(self, nuevonumero):
+        self.numero = nuevonumero
+    
+    def modificarnombre(self, nuevonombre):
+        self.nombre = nuevonombre
+   
+    def modificardireccion(self, nuevadireccion):
+        self.direccion = nuevadireccion    

@@ -21,6 +21,39 @@ def buscarcontacto(nombre):
         if encontrado == False:
             print("Dato no existente...")        
     
+def mostrarcontactos():
+    if len(MisContactos) == 0:
+        print("La lista esta vacía, no hay contactos que buscar...")
+    else:
+        for i in range(len(MisContactos)):
+            print("nombre: ", MisContactos[i].vernombre(), "direccion", MisContactos[i].verdireccion(), "telefono", MisContactos[i].vernumero())   
+
+def modificarcontacto(nombre):
+    if len(MisContactos) == 0:
+        print("La lista esta vacía, no hay contactos que buscar...")
+    else:
+        encontrado = False
+        posicion = None
+        for i in range(len(MisContactos)):
+            if MisContactos[i].vernombre() == nombre:
+               posicion = i 
+               encontrado = True
+               break    
+            else:
+                encontrado = False
+        if encontrado:
+            nuevonumero = int(input("ingrese el nuevo numero: "))
+            nuevonombre = input("ingrese nuevo nombre: ")
+            nuevadireccion = input("ingrese la nueva direccion: ")
+            MisContactos[posicion].modificarnumero(nuevonumero)
+            MisContactos[posicion].modificarnombre(nuevonombre)
+            MisContactos[posicion].modificardireccion(nuevadireccion)
+            print("datos actualizados con exito...")
+        else:
+            print("dato no encontrado...")
+
+
+
 def main():
     op = 0
     while op != 7:
@@ -41,5 +74,12 @@ def main():
             elif op ==2:
                 nombre = input("ingrese el nombre del contacto a buscar: ")
                 buscarcontacto(nombre) 
+            elif op == 3:
+                mostrarcontactos()
+            elif op ==4:
+                nombre = input("ingrese el nombre del contacto: ")
+                modificarcontacto(nombre)
+
+                modificarcontacto()    
              
 main()
