@@ -1,8 +1,26 @@
 from persona import persona
-MisContactos= ()
+MisContactos= []
 
-def crearContacto():
-    print("Creando Contacto")
+def crearContacto(numero, nombre, direccion):
+    MisContactos.append(persona(numero, nombre, direccion))
+    print("Contacto almacenado....")
+
+def buscarcontacto(nombre):
+    if len(MisContactos) == 0:
+        print("La lista esta vacía, no hay contactos que buscar...")
+    else:
+        encontrado = False
+        for i in range(len(MisContactos)):
+            if MisContactos[i].vernombre() == nombre:
+                print("El telefono es " , MisContactos[i].vernumero())
+                print("La direccion es " , MisContactos[i].verdireccion())
+                encontrado = True
+                break    
+            else:
+                encontrado = False
+        if encontrado == False:
+            print("Dato no existente...")        
+    
 def main():
     op = 0
     while op != 7:
@@ -13,15 +31,15 @@ def main():
             print("4. Modificar contacto")
             print("5. Eliminar contacto")
             print("6. Crear reporte en HTMl")
-            print("7. Salir del programa○\n\n: ")
-
+            print("7. Salir del programa\n\n")
             op = int(input("Ingrese el número de opción: "))
             if op == 1:
                 numero = int(input("ingrese el numero de telefono: "))
-                nombre = int(input("ingrese el nombre: "))
-                direccion = int(input("ingrese la direccion: "))
+                nombre = input("ingrese el nombre: ")
+                direccion = input("ingrese la direccion: ")
                 crearContacto(numero, nombre, direccion)
-                crearContacto()
-
-#iniciar programa
+            elif op ==2:
+                nombre = input("ingrese el nombre del contacto a buscar: ")
+                buscarcontacto(nombre) 
+             
 main()
