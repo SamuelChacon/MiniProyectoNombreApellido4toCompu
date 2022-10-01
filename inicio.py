@@ -72,6 +72,32 @@ def eliminarcontacto(nombre):
             print("dato no encontrado...")
 
 def crearreporte():
+    documento = open("reporte contactos.html", "w")
+    documento.write("<!doctype html>\n")
+    documento.write("<html\n")
+    documento.write("</head>\n")
+    documento.write("\t<title>Agenda 2022</title>\n")
+    documento.write("</head>\n")
+    documento.write("body>/n")
+    documento.write("\t<center>\n")
+    documento.write("\t<Mis contactos</h1\n")
+    documento.write("\<table border=1>\n")
+    documento.write("\t\t<tr>\n")
+    documento.write("\t\t\t<td>Numero de telefono</td<td>Nombre</td><td>Direccion</td>\n")
+    for i in range(len(MisContactos)):
+        documento.write("\t\t<tr>\n")
+        documento.write("\t\t\t<td>" +str(MisContactos[i].vernumero()) +"</td><td>" + MisContactos[i].vernombre() + "</td><td>" + MisContactos[i].verdireccion()+"</td>")
+        documento.write("\t\t<tr>\n")
+
+
+        documento.write("\t\t<tr>\n")
+        documento.write("\t<table>\n")
+        documento.write("\t<center>\n")
+        documento.write("/body>\n") 
+        documento.write("</html>")
+        documento.close()
+        print("reporte html creado con exito...")
+
     print("creando reporte html")             
 def main():
     op = 0
